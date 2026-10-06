@@ -1,0 +1,1 @@
+"""Persistence layer — the only place SQL is written."""

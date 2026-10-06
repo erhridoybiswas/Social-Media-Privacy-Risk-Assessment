@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Social Media Privacy Risk Assessment Framework</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <div class="brand"><span class="dot"></span> Privacy Risk Assessment</div>
+    <nav class="site">
+      <a href="/" class="active">Home</a>
+      <a href="/assessment">Assessment</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/checklist">Checklist</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <h1>Social Media Privacy Risk Assessment Framework</h1>
+    <p class="lead">
+      A defensive, educational privacy-assessment platform. Answer 51 questions
+      about your social-media privacy <em>settings</em> and receive a risk score,
+      category breakdown, prioritised recommendations and an improvement
+      simulation.
+    </p>
+
+    <div class="alert info mt-24">
+      <strong>Ethical scope.</strong> This tool never accesses, scrapes, tracks
+      or profiles real social-media accounts. It asks only whether information
+      is <em>visible</em> — never for the information itself. No phone numbers,
+      addresses, birth dates or passwords are ever collected or stored.
+    </div>
+
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/assessment">Start Privacy Assessment</a>
+      <a class="btn btn-ghost" href="/assessment?demo=1">Load Safe Demo Profile</a>
+      <a class="btn btn-ghost" href="/dashboard">View Dashboard</a>
+    </div>
+
+    <h2>What you receive</h2>
+    <div class="grid cols-3">
+      <div class="stat">
+        <div class="label">Overall Risk Score</div>
+        <div class="value">0–100</div>
+        <div class="sub">Higher score = higher assessed exposure</div>
+      </div>
+      <div class="stat">
+        <div class="label">Risk Level</div>
+        <div class="value" style="font-size:20px">LOW · MODERATE · HIGH · CRITICAL</div>
+        <div class="sub">Classified against configurable thresholds</div>
+      </div>
+      <div class="stat">
+        <div class="label">Category Scores</div>
+        <div class="value">10</div>
+        <div class="sub">Profile, information, location, security and more</div>
+      </div>
+      <div class="stat">
+        <div class="label">Findings</div>
+        <div class="value">—</div>
+        <div class="sub">Severity-ranked privacy weaknesses</div>
+      </div>
+      <div class="stat">
+        <div class="label">Recommendations</div>
+        <div class="value">—</div>
+        <div class="sub">IMMEDIATE / IMPORTANT / GOOD PRACTICE</div>
+      </div>
+      <div class="stat">
+        <div class="label">Improvement Simulator</div>
+        <div class="value">Δ</div>
+        <div class="sub">See the modelled effect of fixing settings</div>
+      </div>
+    </div>
+
+    <h2>Assessed categories</h2>
+    <div class="grid cols-3">
+      <div class="card"><h3>Profile Visibility</h3>
+        <p class="muted">Public / friends-only / private scope, search-engine indexing, discoverability.</p></div>
+      <div class="card"><h3>Personal Information</h3>
+        <p class="muted">Whether contact, birthday, workplace, education and family details are visible.</p></div>
+      <div class="card"><h3>Location Privacy</h3>
+        <p class="muted">Real-time sharing, geotagging, check-ins, travel announcements.</p></div>
+      <div class="card"><h3>Posts &amp; Content</h3>
+        <p class="muted">Default audiences, stories, photo metadata awareness, sensitive content.</p></div>
+      <div class="card"><h3>Connections</h3>
+        <p class="muted">Unknown requests, verification habits, open direct messages.</p></div>
+      <div class="card"><h3>Tagging &amp; Mentions</h3>
+        <p class="muted">Who can tag you, tag review, automatic display of tagged content.</p></div>
+      <div class="card"><h3>Account Security</h3>
+        <p class="muted">MFA, unique passwords, login alerts, session review.</p></div>
+      <div class="card"><h3>Third-Party Apps</h3>
+        <p class="muted">Connected applications, unused integrations, least privilege.</p></div>
+      <div class="card"><h3>Social Engineering</h3>
+        <p class="muted">Link awareness, verification codes, unsolicited messages.</p></div>
+      <div class="card"><h3>Digital Footprint</h3>
+        <p class="muted">Old posts, unused accounts, periodic privacy reviews.</p></div>
+    </div>
+
+    <h2>How it works</h2>
+    <div class="card">
+      <pre class="muted" style="white-space:pre-wrap;margin:0">
+User → Privacy Questionnaire → Input Validation → Feature Extraction
+     → Category Risk Analysis → Risk Scoring Engine → Overall Risk Score
+     → Risk Classification → Findings Engine → Recommendation Engine
+     → Privacy Dashboard → Improvement Simulator → Privacy Report</pre>
+    </div>
+
+    <h2>Important disclaimer</h2>
+    <div class="alert warn">
+      This is an <strong>educational risk framework</strong>, not a guarantee
+      that an account will or will not be compromised. Weights and thresholds
+      are illustrative assumptions that must be validated before any
+      professional risk decision.
+    </div>
+
+  </div>
+</main>
+
+<footer class="site">
+  <div class="container">
+    Defensive cybersecurity &amp; privacy education · Synthetic and self-reported
+    data only · No scraping, no tracking, no PII collection.
+  </div>
+</footer>
+
+</body>
+</html>

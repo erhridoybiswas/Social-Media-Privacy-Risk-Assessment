@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Checklist — Social Media Privacy Risk Assessment</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<script src="/static/js/api.js" defer></script>
+<script src="/static/js/checklist.js" defer></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <div class="brand"><span class="dot"></span> Privacy Risk Assessment</div>
+    <nav class="site">
+      <a href="/">Home</a>
+      <a href="/assessment">Assessment</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/checklist" class="active">Checklist</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container narrow">
+
+    <h1>Social Media Privacy Checklist</h1>
+    <p class="lead">
+      Work through this list every three to six months, and after any major life
+      change (new job, move, graduation). Printable and downloadable.
+    </p>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="window.print()">Print / Save as PDF</button>
+      <a id="download-checklist" class="btn btn-ghost" download="privacy-checklist.txt">
+        Download as Text
+      </a>
+    </div>
+
+    <div id="checklist-error" class="alert err mt-24 hidden"></div>
+    <ul id="checklist" class="checklist mt-24"></ul>
+
+    <div class="alert warn mt-24">
+      A checklist is a hygiene aid, not a guarantee. Privacy is a moving target:
+      platforms change defaults, and your own circumstances change.
+    </div>
+
+  </div>
+</main>
+
+<footer class="site">
+  <div class="container">
+    Defensive cybersecurity &amp; privacy education · Synthetic and self-reported
+    data only.
+  </div>
+</footer>
+
+</body>
+</html>

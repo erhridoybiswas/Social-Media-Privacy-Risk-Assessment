@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Assessment — Social Media Privacy Risk Assessment</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+<script src="/static/js/api.js" defer></script>
+<script src="/static/js/assessment.js" defer></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <div class="brand"><span class="dot"></span> Privacy Risk Assessment</div>
+    <nav class="site">
+      <a href="/">Home</a>
+      <a href="/assessment" class="active">Assessment</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/checklist">Checklist</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container narrow">
+
+    <h1>Privacy Assessment</h1>
+    <p class="lead">
+      Answer the questions below about your social-media privacy
+      <strong>settings</strong>. Do not enter actual phone numbers, addresses,
+      birth dates or passwords — this questionnaire only asks whether such
+      information is visible.
+    </p>
+
+    <div class="alert info mt-24">
+      <strong>Privacy notice.</strong> Answers are processed in memory to compute
+      your scores. Only derived values (score, risk level, category scores and
+      finding <em>types</em>) are stored. Raw answers are never persisted, and no
+      personal data is collected at any point.
+    </div>
+
+    <div id="demo-notice" class="alert info mt-24 hidden"></div>
+    <div id="form-error" class="alert err mt-24 hidden"></div>
+
+    <div id="questionnaire" class="mt-24"></div>
+
+    <div class="btn-row">
+      <button id="btn-submit" class="btn btn-primary">Generate Privacy Risk Score</button>
+      <button id="btn-demo" class="btn btn-ghost">Load Safe Demo Profile</button>
+      <button id="btn-reset" class="btn btn-ghost">Reset</button>
+    </div>
+
+    <!-- ============================ RESULTS ============================ -->
+    <section id="results" class="hidden mt-24">
+
+      <h2>Overall Privacy Risk</h2>
+      <div class="grid cols-5">
+        <div class="stat">
+          <div class="label">Risk Score</div>
+          <div class="value" id="score-value">—</div>
+          <div class="sub">0–100 · higher = more exposure</div>
+        </div>
+        <div class="stat">
+          <div class="label">Risk Level</div>
+          <div class="value" style="font-size:20px">
+            <span id="risk-badge" class="badge">—</span>
+          </div>
+          <div class="sub">LOW · MODERATE · HIGH · CRITICAL</div>
+        </div>
+        <div class="stat">
+          <div class="label">Top Category</div>
+          <div class="value" style="font-size:16px" id="stat-top-category">—</div>
+          <div class="sub">Highest category risk</div>
+        </div>
+        <div class="stat">
+          <div class="label">Findings</div>
+          <div class="value" id="stat-findings">—</div>
+          <div class="sub">Detected weaknesses</div>
+        </div>
+        <div class="stat">
+          <div class="label">Recommendations</div>
+          <div class="value" id="stat-recommendations">—</div>
+          <div class="sub">Coverage <span id="stat-coverage">—</span></div>
+        </div>
+      </div>
+
+      <h2>Category Risk Scores</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <table class="data">
+            <thead>
+              <tr><th>Category</th><th class="num">Score</th><th>Exposure</th></tr>
+            </thead>
+            <tbody id="category-table-body"></tbody>
+          </table>
+        </div>
+        <div class="card">
+          <div class="chart-wrap tall"><canvas id="category-chart"></canvas></div>
+        </div>
+      </div>
+
+      <h2>Top Privacy Findings</h2>
+      <div id="findings-list"></div>
+
+      <h2>Personalised Recommendations</h2>
+      <div id="recommendations-list"></div>
+
+      <h2>Improvement Simulator</h2>
+      <div class="alert warn">
+        <strong>“What happens if I improve my settings?”</strong>
+        Select the weaknesses you would fix and see the modelled effect.
+        This is a framework simulation — not a guarantee of real-world safety.
+      </div>
+      <div class="card mt-24">
+        <div id="simulator-options"></div>
+        <div class="btn-row">
+          <button id="btn-simulate" class="btn btn-primary">Simulate Improvements</button>
+        </div>
+        <div id="simulation-error" class="alert err mt-24 hidden"></div>
+      </div>
+
+      <div id="simulation-output" class="card mt-24 hidden">
+        <div class="compare">
+          <div style="text-align:center">
+            <div class="muted">CURRENT</div>
+            <div class="score-big" id="sim-before-score">—</div>
+            <span id="sim-before-level" class="badge">—</span>
+          </div>
+          <div class="arrow">→</div>
+          <div style="text-align:center">
+            <div class="muted">SIMULATED</div>
+            <div class="score-big" id="sim-after-score">—</div>
+            <span id="sim-after-level" class="badge">—</span>
+          </div>
+        </div>
+
+        <h3 class="mt-24">Modelled Risk Reduction</h3>
+        <p><strong id="sim-reduction">—</strong></p>
+
+        <h3 class="mt-24">Settings Changed</h3>
+        <ul id="sim-changes" class="muted"></ul>
+
+        <div class="alert warn mt-24" id="sim-disclaimer"></div>
+      </div>
+
+      <h2>Next Steps</h2>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/dashboard">Open Dashboard</a>
+        <a class="btn btn-ghost" href="/checklist">Printable Checklist</a>
+        <a class="btn btn-ghost" href="/report">Generate Report</a>
+      </div>
+
+      <div class="alert warn mt-24">
+        This assessment is an <strong>educational risk framework</strong>, not a
+        guarantee that an account will or will not be compromised. Weights and
+        thresholds are illustrative and must be validated before any
+        professional risk decision.
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<footer class="site">
+  <div class="container">
+    Defensive cybersecurity &amp; privacy education · Synthetic and self-reported
+    data only.
+  </div>
+</footer>
+
+</body>
+</html>

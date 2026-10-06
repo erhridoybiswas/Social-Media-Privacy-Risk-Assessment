@@ -1,0 +1,30 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# ---- Environment / secrets ----
+.env
+*.env.local
+
+# ---- Databases ----
+*.db
+*.sqlite
+*.sqlite3
+
+# ---- Generated outputs ----
+reports/*.html
+reports/*.pdf
+
+# ---- Editors / OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---- Keep the synthetic dataset (it is safe & required) ----
+!data/social_media_privacy_assessments.csv

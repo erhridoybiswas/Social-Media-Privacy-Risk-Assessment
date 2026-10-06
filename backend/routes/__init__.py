@@ -1,0 +1,1 @@
+"""HTTP layer — thin controllers only, no business logic."""

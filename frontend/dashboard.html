@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard — Social Media Privacy Risk Assessment</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+<script src="/static/js/api.js" defer></script>
+<script src="/static/js/dashboard.js" defer></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <div class="brand"><span class="dot"></span> Privacy Risk Assessment</div>
+    <nav class="site">
+      <a href="/">Home</a>
+      <a href="/assessment">Assessment</a>
+      <a href="/dashboard" class="active">Dashboard</a>
+      <a href="/checklist">Checklist</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <h1>Privacy Analytics Dashboard</h1>
+    <p class="lead">
+      Aggregate view over assessments stored on this instance. All figures are
+      counts and averages — no individual records and no personal data are ever
+      displayed.
+    </p>
+
+    <div id="dash-error" class="alert err mt-24 hidden"></div>
+
+    <div class="grid cols-5 mt-24">
+      <div class="stat">
+        <div class="label">Assessments</div>
+        <div class="value" id="card-total">—</div>
+        <div class="sub">Stored records</div>
+      </div>
+      <div class="stat">
+        <div class="label">Average Score</div>
+        <div class="value" id="card-average">—</div>
+        <div class="sub">0–100 · higher = riskier</div>
+      </div>
+      <div class="stat">
+        <div class="label">High / Critical</div>
+        <div class="value" id="card-high-risk">—</div>
+        <div class="sub">Assessments needing action</div>
+      </div>
+      <div class="stat">
+        <div class="label">Weakest Category</div>
+        <div class="value" style="font-size:16px" id="card-worst-category">—</div>
+        <div class="sub">Highest average risk</div>
+      </div>
+      <div class="stat">
+        <div class="label">Distinct Weaknesses</div>
+        <div class="value" id="card-weaknesses">—</div>
+        <div class="sub">Finding types observed</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/assessment">Start Privacy Assessment</a>
+      <a class="btn btn-ghost" href="/checklist">Printable Checklist</a>
+    </div>
+
+    <h2>Category Risk Scores</h2>
+    <div class="card">
+      <div class="chart-wrap tall"><canvas id="chart-categories"></canvas></div>
+    </div>
+
+    <div class="grid cols-2 mt-24">
+      <div>
+        <h2>Privacy Risk Distribution</h2>
+        <div class="card">
+          <div class="chart-wrap"><canvas id="chart-distribution"></canvas></div>
+        </div>
+      </div>
+      <div>
+        <h2>Top Privacy Weaknesses</h2>
+        <div class="card">
+          <div class="chart-wrap"><canvas id="chart-weaknesses"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert info mt-24" id="dash-note"></div>
+
+    <div class="alert warn mt-24">
+      Risk weights and thresholds in this framework are
+      <strong>educational assumptions</strong>. Validate them against your own
+      threat model before making any professional risk decision.
+    </div>
+
+  </div>
+</main>
+
+<footer class="site">
+  <div class="container">
+    Defensive cybersecurity &amp; privacy education · Synthetic and self-reported
+    data only.
+  </div>
+</footer>
+
+</body>
+</html>
