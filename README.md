@@ -579,5 +579,5 @@ machine — the exact numbers depend on the weights in `backend/config.py`.
 
 **HRIDOY BISWAS**
 
-- GitHub: [@your-username](https://github.com/erhridoybiswas)
-- LinkedIn: [linkedin.com/in/your-profile](https://linkedin.com/in/erhridoybiswas)
+- GitHub: [Hridoy biswas](https://github.com/erhridoybiswas)
+- LinkedIn: [linkedin/in/your-profile](https://linkedin.com/in/erhridoybiswas)
