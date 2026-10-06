@@ -27,4 +27,4 @@ reports/*.pdf
 Thumbs.db
 
 # ---- Keep the synthetic dataset (it is safe & required) ----
-!data/social_media_privacy_assessments.csv
+!data/social_media_privacy_assessments.csvscreenshots/*.mp4
